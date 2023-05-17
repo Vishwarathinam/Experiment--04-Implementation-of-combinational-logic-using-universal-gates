@@ -35,57 +35,38 @@ Developed by: Vishwa Rathinam S
 RegisterNumber:  2122211240063
 
 ```
-Using NAND Operation:
-
-
-module combine1(A,B,C,D,F);
-input A,B,C,D;
-output F;
-wire P,Q,R;
-assign P = C&(~B)&(~A);
-assign Q = D&(~C)&(~A);
-assign R = (~C)&B&(~A);
-assign F = (~P&~Q&~R);
-endmodule
-
-Using NOR Operation:
-
-module combine2(A,B,C,D,F);
-input A,B,C,D;
-output F;
-wire P,Q,R,S;
-assign P = C&(~B)&A;
-assign Q = D&(~C)&A;
-assign R = C&(~B)&A;
-assign S = ~(P|Q|R);
-assign F = ~S;
-endmodule
+module exp4(a,b,c,d,w,x,y,z,fl,f2);
+input a,b,c,d,w,x,y,z;
+output fl,f2;
+wire g1=((~a)&(~b)&(~c)&(~d)); 
+wire g2=((a)&(~c)&(~d));
+wire g3=((~b)&(c)&(~d));
+wire g4=((~a)&(b)&(c)&(d)); 
+wire g5=((b)&(~c)&(d));
+assign fl=g1|g2|g3|g4|g5; 
+wire g6=((x)&(~y)&(z));
+wire g7=((~x)&(~y)&(z));
+wire g8=((~w)&(x)&(y)); 
+wire g9=((w)&(~x)&(y));
+wire g10=((w)&(x)&(y)); 
+assign f2=g6|g7|g8|g9|g10;
+endmodule-0p-
 ```
 */
 
 
 ### Output:
-### NAND:
+### RTL realization of NAND and NOR gates:
+![e1](https://github.com/Vishwarathinam/Experiment--04-Implementation-of-combinational-logic-using-universal-gates/assets/95266350/79dbc872-dc79-487e-a762-c10a27d6f654)
 
-### RTL:
-![RTL](https://user-images.githubusercontent.com/95266350/231412582-15f82f50-a843-4f70-a373-ed6a096743c3.jpg)
+### Truth Table of NAND gate:
+![img1](https://github.com/Vishwarathinam/Experiment--04-Implementation-of-combinational-logic-using-universal-gates/assets/95266350/82838256-efe4-476e-bc19-f727e3db522f)
 
-### Truth Table:
-![TRUTH1](https://user-images.githubusercontent.com/95266350/231413838-bc35330c-5736-41d5-9379-fe82b2ea6eba.jpg)
-
-### Timing Diagram:
-![TIMINGNAND](https://user-images.githubusercontent.com/95266350/231412814-0a595fd0-c497-46b3-9d2c-57db7a45e310.jpg)
-
-### NOR:
-
-### RTL:
-![RTLNOR](https://user-images.githubusercontent.com/95266350/231413454-7e202a7b-6d48-414d-b40e-172adae4ad0c.jpg)
-
-### Truth Table:
-![TRUTHNOR](https://user-images.githubusercontent.com/95266350/231413616-e6abab28-04ea-4f58-9c19-52b7de59b8aa.jpg)
+### Truth Table of NOR gate:
+![img 2](https://github.com/Vishwarathinam/Experiment--04-Implementation-of-combinational-logic-using-universal-gates/assets/95266350/acd52217-b0d2-4e98-8c86-c49f47bcbe82)
 
 ### Timing Diagram:
-![timingnor](https://user-images.githubusercontent.com/95266350/231413755-8c903f2f-0377-4d6c-b03d-5703393fa8c0.jpg)
+![vish](https://github.com/Vishwarathinam/Experiment--04-Implementation-of-combinational-logic-using-universal-gates/assets/95266350/a632314e-4ee9-436c-9013-6394eb7fbdad)
 
-## Result:
+### Result:
 Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
